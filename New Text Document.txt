@@ -1,0 +1,311 @@
+cd logo-reveal
+npm init -y
+reset the server  Invoke-RestMethod -Uri http://localhost:3000/reset -Method Post
+
+npm install express body-parser cors
+node server.js
+
+
+
+
+
+server js
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
+
+const app = express();
+const PORT = 3000;
+const TOTAL_STUDENTS = 5000;
+const TIMER_DURATION = 48 * 60 * 60 * 1000; // 5 minutes in milliseconds
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the 'public' directory
+
+let count = 0;
+let startTime = Date.now();
+
+// Load count from a file if it exists
+if (fs.existsSync('count.json')) {
+    const data = fs.readFileSync('count.json', 'utf-8');
+    const parsedData = JSON.parse(data);
+    count = parsedData.count;
+    startTime = parsedData.startTime || startTime;
+} else {
+    fs.writeFileSync('count.json', JSON.stringify({ count, startTime }));
+}
+
+// Endpoint to get the current count and timer status
+app.get('/count', (req, res) => {
+    const elapsedTime = Date.now() - startTime;
+    const percentage = (count / TOTAL_STUDENTS) * 100;
+    const timeLeft = Math.max(TIMER_DURATION - elapsedTime, 0);
+    const revealLogo = percentage >= 100 || timeLeft === 0;
+
+    res.json({ count, percentage, timeLeft, revealLogo });
+});
+
+// Endpoint to increment the count
+app.post('/increment', (req, res) => {
+    count++;
+    fs.writeFileSync('count.json', JSON.stringify({ count, startTime }));
+    res.json({ count, percentage: (count / TOTAL_STUDENTS) * 100 });
+});
+
+// Endpoint to reset the count and timer
+app.post('/reset', (req, res) => {
+    count = 0;
+    startTime = Date.now();
+    fs.writeFileSync('count.json', JSON.stringify({ count, startTime }));
+    res.json({ message: 'Reset successful' });
+});
+
+// Serve index.html and admin.html for their respective routes
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Reveal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="loyola" id="logoLeft"><img src="./Loyola_College_Chennai_-_Coat_of_arms.png" alt="Left Logo"></div>
+        <div class="loyola" id="logoRight"><img src="./images.jpg" alt="Right Logo"></div>
+        <h1>Logo Reveal</h1>
+        <p>Click the button to reveal the logo!</p>
+        <button id="revealButton">Tap to Reveal</button>
+        <div id="logoContainer" style="display: none;">
+            <img src="logo.png" alt="Logo" id="logo">
+        </div>
+        <p id="timer"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+admin.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Reveal Admin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="loyola" id="logoLeft"><img src="./Loyola_College_Chennai_-_Coat_of_arms.png" alt="Left Logo"></div>
+        <div class="loyola" id="logoRight"><img src="./images.jpg" alt="Right Logo"></div>
+        <h1>Logo Reveal Admin</h1>
+        <p id="status"></p>
+        <div id="progressContainer">
+            <div id="progressBar"></div>
+        </div>
+        <div id="logoContainer" style="display: none;">
+            <img src="logo.png" alt="Logo" id="logo">
+        </div>
+        <p id="timer"></p>
+    </div>
+    <script src="adminScript.js"></script>
+</body>
+</html>
+
+styler.css
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    margin: 0;
+    font-family: mona sans;
+    
+}
+
+.container {
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    background-color: #1B2945;
+    /* background: #202020; */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative; /* Add relative positioning */
+}
+
+#progressContainer {
+    width: 100%;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 30px;
+    width: 0;
+    background-color: #4caf50;
+    transition: width 0.5s;
+}
+
+
+#logoContainer {
+    margin-top: 20px;
+}
+
+#logo {
+    max-width: 100%;
+}
+
+#revealButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#revealButton:hover {
+    background-color: white;
+    color: black;
+}
+
+.loyola {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+}
+
+#logoLeft {
+    left: 10px; /* Adjust as needed */
+}
+
+#logoRight {
+    right: 10px; /* Adjust as needed */
+}
+
+.loyola img {
+    height: 60px;
+    width: 60px;
+    border-radius: 20%;
+}
+
+script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const revealButton = document.getElementById('revealButton');
+    const logoContainer = document.getElementById('logoContainer');
+    const logo = document.getElementById('logo');
+    const timerElement = document.getElementById('timer');
+
+    console.log('DOM fully loaded and parsed');
+
+    const updateProgress = async () => {
+        try {
+            const response = await fetch('http://localhost:3001/count');
+            const data = await response.json();
+            const percentage = data.percentage;
+            const timeLeft = data.timeLeft;
+
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            timerElement.textContent = `Time left: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            if (data.revealLogo) {
+                logoContainer.style.display = 'block';
+                logo.style.opacity = 0;
+                logo.style.transform = 'scale(0.5)';
+                setTimeout(() => {
+                    logo.style.transition = 'opacity 1s, transform 1s';
+                    logo.style.opacity = 1;
+                    logo.style.transform = 'scale(1)';
+                }, 10);
+                revealButton.disabled = true;
+            }
+        } catch (error) {
+            console.error('Error fetching count data:', error);
+        }
+    };
+
+    revealButton.addEventListener('click', async () => {
+        console.log('Reveal button clicked');
+        try {
+            const response = await fetch('http://localhost:3001/increment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await response.json();
+            console.log('Increment response:', data);
+            updateProgress();
+        } catch (error) {
+            console.error('Error incrementing count:', error);
+        }
+    });
+
+    updateProgress();
+    setInterval(updateProgress, 1000); // Update progress every second
+});
+
+adminscript.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const progressBar = document.getElementById('progressBar');
+    const logoContainer = document.getElementById('logoContainer');
+    const timerElement = document.getElementById('timer');
+    const statusElement = document.getElementById('status');
+  
+    const updateProgress = async () => {
+      const response = await fetch('http://localhost:3000/count');
+      const data = await response.json();
+      const percentage = data.percentage;
+      progressBar.style.width = `${percentage}%`;
+      const timeLeft = data.timeLeft;
+  
+      // Update the timer to show minutes and seconds
+      const minutes = Math.floor(timeLeft / 1000 / 60);
+      const seconds = Math.floor((timeLeft / 1000) % 60);
+      timerElement.textContent = `Time left: ${minutes} minutes ${seconds} seconds`;
+  
+      // Check if the logo should be revealed
+      if (data.revealLogo) {
+        logoContainer.style.display = 'block';
+        statusElement.textContent = 'Logo is revealed!';
+      } else {
+        statusElement.textContent = `Percentage of students clicked: ${percentage.toFixed(2)}%`;
+      }
+    };
+  
+    updateProgress();
+    setInterval(updateProgress, 1000); // Update progress every second
+  });
