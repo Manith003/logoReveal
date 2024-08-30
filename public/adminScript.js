@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerElement = document.getElementById('timer');
     const statusElement = document.getElementById('status');
   
+    const API_URL = 'https://logoreveal.onrender.com'; // Replace with your deployed server URL
+
     const updateProgress = async () => {
         try {
-            const response = await fetch('http://localhost:3000/count');
+            const response = await fetch(`${API_URL}/count`);
             const data = await response.json();
             const percentage = data.percentage;
             progressBar.style.width = `${percentage}%`;
@@ -28,8 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching count data:', error);
         }
     };
-  
+
     updateProgress();
     setInterval(updateProgress, 1000);
-  });
-  
+});

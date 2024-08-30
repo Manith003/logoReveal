@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const logo = document.getElementById('logo');
     const timerElement = document.getElementById('timer');
 
+    const API_URL = 'https://logoreveal.onrender.com'; // Replace with your deployed server URL
+
     const updateProgress = async () => {
         try {
-            const response = await fetch('http://localhost:3000/count');
+            const response = await fetch(`${API_URL}/count`);
             const data = await response.json();
             const percentage = data.percentage;
             const timeLeft = data.timeLeft;
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealButton.addEventListener('click', async () => {
         try {
-            const response = await fetch('http://localhost:3000/increment', {
+            const response = await fetch(`${API_URL}/increment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
