@@ -1,0 +1,109 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    margin: 0;
+    font-family: mona sans;
+    
+}
+
+.container {
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    background-color: #1B2945;
+    /* background: #202020; */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative; /* Add relative positioning */
+}
+
+#progressContainer {
+    width: 100%;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 30px;
+    width: 0;
+    background-color: #4caf50;
+    transition: width 0.5s;
+}
+
+
+#logoContainer {
+    margin-top: 20px;
+}
+#logoContainer img{
+    height: 15%;
+    width: 15%;
+}
+
+#logo {
+    max-width: 100%;
+}
+
+#revealButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#revealButton:hover {
+    background-color: white;
+    color: black;
+}
+
+.loyola {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    
+}
+
+#logoLeft {
+    left: 10px; /* Adjust as needed */
+}
+
+#logoRight {
+    right: 10px; /* Adjust as needed */
+}
+
+.loyola img {
+    height: 60px;
+    width: 60px;
+    border-radius: 20%;
+}
+
+.ovation{
+    /* background-color: red; */
+    font-family: "Riesling";
+    letter-spacing: 15px;
+    font-size: 3em;
+    width: fit-content;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+.qoute{
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translateX(-50%);
+    
+}
+.qoute h4{
+    font-weight: 500;
+}
