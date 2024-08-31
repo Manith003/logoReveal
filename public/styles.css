@@ -2,23 +2,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     margin: 0;
-    font-family: mona sans;
-    
+    font-family: "Mona Sans", sans-serif;
+    background-color: #121212;
 }
 
 .container {
     text-align: center;
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    /* max-width: 600px; */
+    max-width: auto;
+    height: 100vh;
     background-color: #1B2945;
-    /* background: #202020; */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    position: relative; /* Add relative positioning */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 20px;
 }
 
 #progressContainer {
@@ -37,17 +39,18 @@ body {
     transition: width 0.5s;
 }
 
-
 #logoContainer {
     margin-top: 20px;
 }
-#logoContainer img{
-    height: 15%;
-    width: 15%;
+
+#logoContainer img {
+    height: auto;
+    max-width: 15%;
 }
 
 #logo {
     max-width: 100%;
+    height: auto;
 }
 
 #revealButton {
@@ -58,7 +61,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 #revealButton:hover {
@@ -68,42 +71,87 @@ body {
 
 .loyola {
     position: absolute;
-    top: 10px; /* Adjust as needed */
-    
+    top: 10px;
 }
 
 #logoLeft {
-    left: 10px; /* Adjust as needed */
+    left: 10px;
 }
 
 #logoRight {
-    right: 10px; /* Adjust as needed */
+    right: 10px;
 }
 
 .loyola img {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     border-radius: 20%;
 }
 
-.ovation{
-    /* background-color: red; */
-    font-family: "Riesling";
-    letter-spacing: 15px;
-    font-size: 3em;
+.ovation {
+    font-family: "Riesling", cursive;
+    letter-spacing: 10px;
+    font-size: 2em;
     width: fit-content;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    
 }
-.qoute{
+
+.qoute {
     position: absolute;
     left: 50%;
-    top: 90%;
+    bottom: 10px;
     transform: translateX(-50%);
-    
+    text-align: center;
 }
-.qoute h4{
+
+.qoute h4 {
     font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .loyola img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .ovation {
+        font-size: 1.5em;
+        letter-spacing: 5px;
+    }
+
+    #revealButton {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    #progressBar {
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loyola img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .ovation {
+        font-size: 1.2em;
+        letter-spacing: 3px;
+    }
+
+    #revealButton {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .qoute h4 {
+        font-size: 0.9rem;
+    }
 }
