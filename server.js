@@ -6,7 +6,7 @@ const path = require('path');
 
 const app = express();
 const PORT = 3000;
-const TOTAL_STUDENTS = 10;
+const TOTAL_STUDENTS = 1000;
 const TIMER_DURATION = 48 * 60 * 60 * 1000; // 48 hours in milliseconds
 // const TIMER_DURATION = 1 * 60 * 1000; // 1 minute in milliseconds
 
