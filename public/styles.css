@@ -282,7 +282,7 @@ body {
     }
     #logoreveal{
         margin-top: -10px;
-        font-size: 1.7em;
+        font-size: 1.5em;
     }
 
     #revealButton {
@@ -316,13 +316,13 @@ body {
     }
 
     .ovation {
-        margin-top: 19%;
-        font-size: 2.1em;
-        letter-spacing: 7px;
+        margin-top: 25%;
+        font-size: 2.0em;
+        letter-spacing: 6px;
     }
     #logoreveal{
         margin-top: -10px;
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 
     #revealButton {
@@ -356,13 +356,13 @@ body {
         width: 50px;
     }
     .ovation {
-        margin-top: 22%;
-        font-size: 1.8em;
-        letter-spacing: 6px;
+        margin-top: 29%;
+        font-size: 1.5em;
+        letter-spacing: 4.5px;
     }
     #logoreveal{
         margin-top: -10px;
-        font-size: 1.1em;
+        font-size: 0.8em;
     }
 
     #revealButton {
@@ -436,6 +436,7 @@ body {
         width: 20px;
     }
     .ovation {
+        margin-top: 30%;
         font-size: 0.8em;
         letter-spacing: 3px;
     }
