@@ -33,7 +33,7 @@ app.get('/count', (req, res) => {
     const elapsedTime = Date.now() - startTime;
     const percentage = (count / TOTAL_STUDENTS) * 100;
     const timeLeft = Math.max(TIMER_DURATION - elapsedTime, 0);
-    const revealLogo = percentage >= 100 || timeLeft === 0;
+    const revealLogo = percentage >= 100 && timeLeft === 0;
 
 
     res.json({ count, percentage, timeLeft, revealLogo });
