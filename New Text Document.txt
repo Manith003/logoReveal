@@ -2,6 +2,9 @@ cd logo-reveal
 npm init -y
 reset the server  Invoke-RestMethod -Uri http://localhost:3000/reset -Method Post
 
+new reset - Invoke-RestMethod -Uri https://logoreveal.onrender.com/reset -Method Post
+>> 
+
 npm install express body-parser cors
 node server.js
 
