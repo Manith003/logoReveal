@@ -19,9 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            timerElement.textContent = `Time left: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            if (timerElement) {
+                timerElement.textContent = `Time left: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
 
-            if (data.revealLogo) {
+            if (data.revealLogo && logoContainer && logo) {
                 logoContainer.style.display = 'block';
                 logo.style.opacity = 0;
                 logo.style.transform = 'scale(0.5)';
@@ -30,32 +32,42 @@ document.addEventListener('DOMContentLoaded', () => {
                     logo.style.opacity = 1;
                     logo.style.transform = 'scale(1)';
                 }, 10);
-                revealButton.disabled = true;
+                if (revealButton) {
+                    revealButton.disabled = true;
+                }
             }
         } catch (error) {
             console.error('Error fetching count data:', error);
         }
     };
 
-    revealButton.addEventListener('click', async () => {
-        try {
-            const response = await fetch(`${API_URL}/increment`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
+    if (revealButton) {
+        revealButton.addEventListener('click', async () => {
+            try {
+                const response = await fetch(`${API_URL}/increment`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                await response.json();
+                updateProgress();
+                if (modal) {
+                    modal.style.display = 'block';
                 }
-            });
-            await response.json();
-            updateProgress();
-            modal.style.display = 'block';
-        } catch (error) {
-            console.error('Error incrementing count:', error);
-        }
-    });
+            } catch (error) {
+                console.error('Error incrementing count:', error);
+            }
+        });
+    }
 
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
 
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
@@ -66,5 +78,3 @@ document.addEventListener('DOMContentLoaded', () => {
     updateProgress();
     setInterval(updateProgress, 1000);
 });
-
-

@@ -35,6 +35,11 @@ app.get('/count', (req, res) => {
     const timeLeft = Math.max(TIMER_DURATION - elapsedTime, 0);
     const revealLogo = percentage >= 100 && timeLeft === 0;
 
+    console.log(`Elapsed Time: ${elapsedTime}`);
+    console.log(`Time Left: ${timeLeft}`);
+    console.log(`Percentage: ${percentage}`);
+    console.log(`Reveal Logo: ${revealLogo}`);
+
     res.json({ count, percentage, timeLeft, revealLogo });
 });
 
