@@ -6,8 +6,15 @@ const path = require('path');
 
 const app = express();
 const PORT = 3000;
+<<<<<<< HEAD
 const TOTAL_STUDENTS = 10;
 const TIMER_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+=======
+const TOTAL_STUDENTS = 50;
+const TIMER_DURATION = 48 * 60 * 60 * 1000; // 48 hours in milliseconds
+// const TIMER_DURATION = 5 * 60 * 1000; // 1 minute in milliseconds
+
+>>>>>>> 9032d32b616eff89aaa8dfecb74e6bd0b53e1604
 
 app.use(cors());
 app.use(bodyParser.json());
