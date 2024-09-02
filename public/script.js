@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoContainer = document.getElementById('logoContainer');
     const logo = document.getElementById('logo');
     const timerElement = document.getElementById('timer');
+    const modal = document.getElementById('confirmationModal');
+    const closeModal = document.querySelector('.modal .close');
 
     const API_URL = 'https://logoreveal.onrender.com'; // Replace with your deployed server URL
 
@@ -45,11 +47,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             await response.json();
             updateProgress();
+            modal.style.display = 'block';
         } catch (error) {
             console.error('Error incrementing count:', error);
+        }
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
         }
     });
 
     updateProgress();
     setInterval(updateProgress, 1000);
 });
+
+

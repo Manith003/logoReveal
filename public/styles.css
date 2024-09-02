@@ -2,25 +2,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     color: white;
-    margin: 0;
+    margin: 1px;
     font-family: "Mona Sans", sans-serif;
     background-color: #121212;
+    position: relative;
+    overflow: hidden;
 }
 
 .container {
+    margin-top: -5%;
     text-align: center;
-    width: 90%;
-    /* max-width: 600px; */
+    width: 80%;
     max-width: auto;
-    height: 100vh;
-    background-color: #1B2945;
+    height: 80%;
+    max-height: auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
-    margin: 20px;
+    z-index: 0;
 }
 
 #progressContainer {
@@ -44,24 +46,19 @@ body {
 }
 
 #logoContainer img {
-    height: auto;
-    max-width: 15%;
-}
-
-#logo {
-    max-width: 100%;
-    height: auto;
+    height: 12%;
+    width: 12%;
 }
 
 #revealButton {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 15px 30px;
     background-color: black;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 #revealButton:hover {
@@ -83,15 +80,16 @@ body {
 }
 
 .loyola img {
-    height: 50px;
-    width: 50px;
-    border-radius: 20%;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
 }
 
+
 .ovation {
-    font-family: "Riesling", cursive;
-    letter-spacing: 10px;
-    font-size: 2em;
+    font-family: "Riesling";
+    letter-spacing: 15px;
+    font-size: 3em;
     width: fit-content;
     position: relative;
     left: 50%;
@@ -101,57 +99,568 @@ body {
 .qoute {
     position: absolute;
     left: 50%;
-    bottom: 10px;
-    transform: translateX(-50%);
-    text-align: center;
+    top: 90%;
+    transform: translate(-50%, -30%);
+    /* background-color: red; */
 }
 
 .qoute h4 {
     font-weight: 500;
 }
 
+.text-container {
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 96px;
+    color: white;
+    opacity: 0.8;
+    user-select: none;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+:root {
+    --color-bg1: #121212;
+    --color-bg2: rgb(0, 17, 82);
+    --color1: 18, 113, 255;
+    --color2: 221, 74, 255;
+    --color3: 100, 220, 255;
+    --color4: 200, 50, 50;
+    --color5: 180, 180, 50;
+    --color-interactive: 140, 100, 255;
+    --circle-size: 80%;
+    --blending: hard-light;
+}
+
+@keyframes moveInCircle {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveVertical {
+    0% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(50%);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes moveHorizontal {
+    0% {
+        transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+        transform: translateX(50%) translateY(10%);
+    }
+    100% {
+        transform: translateX(-50%) translateY(-10%);
+    }
+}
+
+.gradient-bg {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.gradients-container {
+    filter: url(#goo) blur(40px);
+    width: 100%;
+    height: 100%;
+}
+
+.g1, .g2, .g3, .g4, .g5 {
+    position: absolute;
+    mix-blend-mode: var(--blending);
+    opacity: 0.7;
+}
+
+.g1 {
+    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+    transform-origin: center center;
+    animation: moveVertical 30s ease infinite;
+}
+
+.g2 {
+    background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+    transform-origin: calc(50% - 400px);
+    animation: moveInCircle 20s reverse infinite;
+}
+
+.g3 {
+    background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2 + 200px);
+    left: calc(50% - var(--circle-size) / 2 - 500px);
+    transform-origin: calc(50% + 400px);
+    animation: moveInCircle 40s linear infinite;
+}
+
+.g4 {
+    background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+    transform-origin: calc(50% - 200px);
+    animation: moveHorizontal 40s ease infinite;
+}
+
+.g5 {
+    background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+    width: calc(var(--circle-size) * 2);
+    height: calc(var(--circle-size) * 2);
+    top: calc(50% - var(--circle-size));
+    left: calc(50% - var(--circle-size));
+    transform-origin: calc(50% - 800px) calc(50% + 200px);
+    animation: moveInCircle 20s ease infinite;
+}
+
+/* Responsive Design */
+
+/* Infinity Symbol Base Styles */
+.infinity-symbol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -39%);
+    font-size: 800px;
+    color: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+    filter: blur(28px); /* Add blur effect */
+}
+
+
+/* Responsive Design - Smaller Screens */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
     }
-
-    .loyola img {
-        height: 40px;
-        width: 40px;
+    .infinity-symbol {
+        font-size: 600px;
+        filter: blur(20px);
     }
-
+    .loyola img {
+        height: 55px;
+        width: 55px;
+    }
+   
     .ovation {
-        font-size: 1.5em;
-        letter-spacing: 5px;
+        font-size: 2.6em;
+        letter-spacing: 8px;
+    }
+    #logoreveal{
+        margin-top: -10px;
+        font-size: 1.7em;
     }
 
     #revealButton {
-        font-size: 0.9rem;
-        padding: 8px 16px;
+        font-size: 1.2rem;
+        padding: 18px 40px;
     }
-
+    .quote h4{
+        font-size: 1em;
+    }
     #progressBar {
         height: 20px;
+    }
+
+    #logoContainer img {
+        height: 18%;
+        width: 18%;
     }
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    .infinity-symbol {
+        font-size: 400px;
+        filter: blur(15px);
+    }
     .loyola img {
-        height: 30px;
-        width: 30px;
+        height: 55px;
+        width: 55px;
     }
 
     .ovation {
-        font-size: 1.2em;
-        letter-spacing: 3px;
+        margin-top: 19%;
+        font-size: 2.4em;
+        letter-spacing: 7px;
+    }
+    #logoreveal{
+        margin-top: -10px;
+        font-size: 1.3em;
     }
 
     #revealButton {
-        font-size: 0.8rem;
-        padding: 6px 12px;
+        font-size: 1.1rem;
+        padding: 16px 38px;
     }
-
     .qoute h4 {
         font-size: 0.9rem;
     }
+    #progressBar {
+        height: 15px;
+    }
+
+    #logoContainer img {
+        height: 40%;
+        width: 40%;
+    }
+}
+
+/* Responsive Design - Very Small Screens (50px to 360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 8px;
+    }
+    .infinity-symbol {
+        font-size: 300px;
+        filter: blur(12px);
+    }
+    .loyola img {
+        height: 50px;
+        width: 50px;
+    }
+    .ovation {
+        margin-top: 25%;
+        font-size: 2.2em;
+        letter-spacing: 6px;
+    }
+    #logoreveal{
+        margin-top: -10px;
+        font-size: 1.1em;
+    }
+
+    #revealButton {
+        font-size: 1.0rem;
+        padding: 14px 36px;
+    }
+    .qoute h4 {
+        font-size: 0.8rem;
+    }
+    #progressBar {
+        height: 12px;
+    }
+
+    #logoContainer img {
+        height: 45%;
+        width: 45%;
+    }
+}
+
+@media (max-width: 250px) {
+    .container {
+        padding: 5px;
+    }
+    .infinity-symbol {
+        font-size: 200px;
+        filter: blur(10px);
+    }
+    .loyola img {
+        height: 35px;
+        width: 35px;
+    }
+
+    .ovation {
+        margin-top: 27%;
+        font-size: 1.5em;
+        letter-spacing: 5px;
+    }
+    #logoreveal{
+        margin-top: -10px;
+        font-size: 0.9em;
+    }
+
+
+    #revealButton {
+        font-size: 0.9rem;
+        padding: 12px 34px;
+    }
+    .qoute h4 {
+        font-size: 0.7rem;
+    }
+    #progressBar {
+        height: 10px;
+    }
+
+    #logoContainer img {
+        height: 50%;
+        width: 50%;
+    }
+}
+
+@media (max-width: 150px) {
+    .container {
+        padding: 3px;
+    }
+    .infinity-symbol {
+        font-size: 150px;
+        filter: blur(8px);
+    }
+    .loyola img {
+        height: 20px;
+        width: 20px;
+    }
+    .ovation {
+        font-size: 0.8em;
+        letter-spacing: 3px;
+    }
+    #revealButton {
+        font-size: 0.8rem;
+        padding: 10px 32px;
+    }
+    .qoute h4 {
+        font-size: 0.6rem;
+    }
+    #progressBar {
+        height: 8px;
+    }
+
+    #logoContainer img {
+        height: 25%;
+        width: 25%;
+    }
+}
+
+@media (max-width: 100px) {
+    .container {
+        padding: 2px;
+    }
+    .infinity-symbol {
+        font-size: 100px;
+        filter: blur(5px);
+    }
+    .loyola img {
+        height: 10px;
+        width: 10px;
+    }
+    .ovation {
+        font-size: 0.6em;
+        letter-spacing: 2px;
+    }
+    #revealButton {
+        font-size: 0.7rem;
+        padding: 8px 30px;
+    }
+    .qoute h4 {
+        font-size: 0.5rem;
+    }
+    #progressBar {
+        height: 6px;
+    }
+
+    #logoContainer img {
+        height: 25%;
+        width: 25%;
+    }
+}
+
+@media (max-width: 50px) {
+    .container {
+        padding: 1px;
+    }
+    .infinity-symbol {
+        font-size: 50px;
+        filter: blur(3px);
+    }
+    .loyola img {
+        height: 5px;
+        width: 5px;
+    }
+    .ovation {
+        font-size: 0.4em;
+        letter-spacing: 1px;
+    }
+    #revealButton {
+        font-size: 0.3rem;
+        padding: 1px 2px;
+    }
+    .qoute h4 {
+        font-size: 0.4rem;
+    }
+    #progressBar {
+        height: 4px;
+    }
+
+    #logoContainer img {
+        height: 35%;
+        width:35%;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 30px;
+    }
+    .infinity-symbol {
+        font-size: 900px;
+        filter: blur(30px);
+    }
+    .loyola img {
+        height: 70px;
+        width: 70px;
+    }
+    .ovation {
+        font-size: 3.5em;
+        letter-spacing: 16px;
+    }
+    #revealButton {
+        font-size: 1.1rem;
+        padding: 18px 36px;
+    }
+    .qoute h4 {
+        font-size: 1.2rem;
+    }
+    #progressBar {
+        height: 35px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        padding: 40px;
+    }
+    .infinity-symbol {
+        font-size: 1200px;
+        filter: blur(35px);
+    }
+    .loyola img {
+        height: 90px;
+        width: 90px;
+    }
+    .ovation {
+        font-size: 4em;
+        letter-spacing: 20px;
+    }
+    #revealButton {
+        font-size: 1.2rem;
+        padding: 20px 40px;
+    }
+    .qoute h4 {
+        font-size: 1.4rem;
+    }
+    #progressBar {
+        height: 40px;
+    }
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    color: black;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 0 auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Width for mobile devices */
+    max-width: 400px; /* Max width to ensure it doesn't get too wide on larger screens */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px; /* Adjusted for mobile view */
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive adjustments for all mobile devices */
+@media (max-width: 600px) {
+    .modal {
+        padding-top: 20px; /* Reduce padding for very small screens */
+    }
+
+    .modal-content {
+        width: 95%; /* Increase width on very small screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .close {
+        font-size: 20px; /* Slightly smaller close button on small screens */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .modal-content {
+        width: 85%; /* Adjust width for tablets and mid-sized screens */
+        padding: 20px; /* Standard padding for mid-sized screens */
+    }
+
+    .close {
+        font-size: 24px; /* Standard close button size for tablets */
+    }
+}
+
+/* Add this to your styles.css */
+
+#videoOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Optional: semi-transparent background */
+    z-index: 9999; /* Ensure the video is on top of other content */
+    display: none; /* Initially hidden */
+}
+
+#fullVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire container */
 }
