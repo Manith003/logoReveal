@@ -6,9 +6,9 @@ const path = require('path');
 
 const app = express();
 const PORT = 3000;
-const TOTAL_STUDENTS = 10;
-// const TIMER_DURATION = 48 * 60 * 60 * 1000; // 48 hours in milliseconds
-const TIMER_DURATION = 5 * 60 * 1000; // 1 minute in milliseconds
+const TOTAL_STUDENTS = 50;
+const TIMER_DURATION = 48 * 60 * 60 * 1000; // 48 hours in milliseconds
+// const TIMER_DURATION = 1 * 60 * 1000; // 1 minute in milliseconds
 
 
 app.use(cors());
@@ -33,7 +33,7 @@ app.get('/count', (req, res) => {
     const elapsedTime = Date.now() - startTime;
     const percentage = (count / TOTAL_STUDENTS) * 100;
     const timeLeft = Math.max(TIMER_DURATION - elapsedTime, 0);
-    const revealLogo = percentage >= 100 && timeLeft === 0;
+    const revealLogo = percentage >= 100 || timeLeft === 0;
 
 
     res.json({ count, percentage, timeLeft, revealLogo });
