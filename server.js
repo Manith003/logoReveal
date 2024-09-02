@@ -7,7 +7,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 const TOTAL_STUDENTS = 10;
-const TIMER_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+const TIMER_DURATION = 48 * 60 * 60 * 1000; // 5 minutes in milliseconds
 
 app.use(cors());
 app.use(bodyParser.json());
