@@ -79,10 +79,24 @@ body {
     right: 10px;
 }
 
+.center{
+    position: absolute;
+    top: -45px;
+    left: 41.5%;
+}
+.center img{
+    height: 200px;
+    width: 200px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
+
 .loyola img {
     height: 60px;
     width: 60px;
-    border-radius: 50%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    /* border-radius: 50%; */
 }
 
 
@@ -94,6 +108,7 @@ body {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 7%;
 }
 
 .qoute {
@@ -275,10 +290,20 @@ body {
         height: 55px;
         width: 55px;
     }
+
+    .center{
+        left: 36%;
+    }
+
+    .center img{
+        height: 170px;
+        width: 170px;
+    }
    
     .ovation {
-        font-size: 2.6em;
-        letter-spacing: 8px;
+        margin-top: 10%;
+        font-size: 2.9em;
+        letter-spacing: 9px;
     }
     #logoreveal{
         margin-top: -10px;
@@ -315,10 +340,20 @@ body {
         width: 55px;
     }
 
+    .center{
+        top: -5.5%;
+        left: 30%;
+    }
+
+    .center img{
+        height: 140px;
+        width: 140px;
+    }
+
     .ovation {
-        margin-top: 25%;
-        font-size: 2.0em;
-        letter-spacing: 6px;
+        margin-top: 22.5%;
+        font-size: 2.5em;
+        letter-spacing: 7px;
     }
     #logoreveal{
         margin-top: -10px;
@@ -355,9 +390,20 @@ body {
         height: 50px;
         width: 50px;
     }
+
+    .center{
+        top: -3%;
+        left: 29%;
+    }
+
+    .center img{
+        height: 110px;
+        width: 110px;
+    }
+
     .ovation {
         margin-top: 29%;
-        font-size: 1.5em;
+        font-size: 1.9em;
         letter-spacing: 4.5px;
     }
     #logoreveal{
@@ -381,6 +427,8 @@ body {
         width: 45%;
     }
 }
+
+
 
 @media (max-width: 250px) {
     .container {
@@ -536,6 +584,11 @@ body {
         height: 70px;
         width: 70px;
     }
+
+    .center{
+        left: 39%;
+    }
+
     .ovation {
         font-size: 3.5em;
         letter-spacing: 16px;
@@ -564,6 +617,11 @@ body {
         height: 90px;
         width: 90px;
     }
+
+    .center{
+        left: 41%;
+    }
+
     .ovation {
         font-size: 4em;
         letter-spacing: 20px;
