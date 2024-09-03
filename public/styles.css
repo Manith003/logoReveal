@@ -66,6 +66,12 @@ body {
     color: black;
 }
 
+#message{
+    margin-top: -10px;
+    transform: translate(0, 100%);
+    font-size: 1em;
+}
+
 .loyola {
     position: absolute;
     top: 10px;
@@ -86,8 +92,8 @@ body {
 }
 .center img{
     height: 200px;
-    width: 200px;
-    aspect-ratio: 3/2;
+    width: 200px; 
+    aspect-ratio: 3/2;   
     object-fit: contain;
 }
 
@@ -101,8 +107,8 @@ body {
 
 
 .ovation {
-    font-family: "Riesling";
-    letter-spacing: 15px;
+    font-family: "poppins";
+    letter-spacing: 10px;
     font-size: 3em;
     width: fit-content;
     position: relative;
