@@ -341,13 +341,13 @@ body {
     }
 
     .center{
-        top: -5.5%;
-        left: 30%;
+        top: -6.9%;
+        left: 26%;
     }
 
     .center img{
-        height: 140px;
-        width: 140px;
+        height: 160px;
+        width: 160px;
     }
 
     .ovation {
@@ -358,6 +358,12 @@ body {
     #logoreveal{
         margin-top: -10px;
         font-size: 1.1em;
+    }
+
+    #logorevealName{
+        /* color: red; */
+        font-size: 2.0em;
+        margin-top: -10px;
     }
 
     #revealButton {
@@ -422,6 +428,12 @@ body {
         height: 12px;
     }
 
+    #logorevealName{
+        /* color: red; */
+        font-size: 1.5em;
+        margin-top: 35px;
+    }
+
     #logoContainer img {
         height: 45%;
         width: 45%;
@@ -451,6 +463,12 @@ body {
     #logoreveal{
         margin-top: -10px;
         font-size: 0.9em;
+    }
+
+    #logorevealName{
+        /* color: red; */
+        font-size: 2.5em;
+        margin-top: -10px;
     }
 
 
