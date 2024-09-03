@@ -28,7 +28,8 @@ body {
 #progressContainer {
     width: 100%;
     background-color: #f3f3f3;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    border: none;
     margin-top: 20px;
     border-radius: 5px;
     overflow: hidden;
@@ -292,30 +293,37 @@ body {
     }
     .infinity-symbol {
         font-size: 600px;
-        filter: blur(20px);
+        filter: blur(17px);
     }
     .loyola img {
-        height: 55px;
-        width: 55px;
+        height: 70px;
+        width: 70px;
     }
 
     .center{
-        left: 36%;
+        top: -48px;
+        left: 35.7%;
     }
 
     .center img{
-        height: 170px;
-        width: 170px;
+        height: 190px;
+        width:190px;
     }
    
     .ovation {
-        margin-top: 10%;
+        margin-top: 14%;
         font-size: 2.9em;
         letter-spacing: 9px;
     }
-    #logoreveal{
+    /* #logoreveal{
         margin-top: -10px;
+        font-size: 1em;
+    } */
+
+    #logorevealName{
+        /* color: red; */
         font-size: 1.5em;
+        margin-top: 20px;
     }
 
     #revealButton {
@@ -341,37 +349,37 @@ body {
     }
     .infinity-symbol {
         font-size: 400px;
-        filter: blur(15px);
+        filter: blur(12px);
     }
     .loyola img {
-        height: 55px;
-        width: 55px;
+        height: 60px;
+        width: 60px;
     }
 
     .center{
         top: -6.9%;
-        left: 26%;
+        left: 26.8%;
     }
 
     .center img{
-        height: 160px;
-        width: 160px;
+        height: 165px;
+        width: 165px;
     }
 
     .ovation {
-        margin-top: 22.5%;
-        font-size: 2.5em;
-        letter-spacing: 7px;
+        margin-top: 27%;
+        font-size: 2.0em;
+        letter-spacing: 6px;
     }
-    #logoreveal{
+    /* #logoreveal{
         margin-top: -10px;
-        font-size: 1.1em;
-    }
+        font-size: 4.1em;
+    } */
 
     #logorevealName{
         /* color: red; */
-        font-size: 2.0em;
-        margin-top: -10px;
+        font-size: 1.4em;
+        margin-top: 26px;
     }
 
     #revealButton {
@@ -401,29 +409,29 @@ body {
         filter: blur(12px);
     }
     .loyola img {
-        height: 42px;
-        width: 42px;
+        height: 48px;
+        width: 48px;
     }
 
     .center{
-        top: -8%;
-        left: 22%;
+        top: -4.8%;
+        left: 26.6%;
     }
 
     .center img{
-        height: 150px;
-        width: 150px;
+        height: 128px;
+        width: 128px;
     }
 
     .ovation {
-        margin-top: 29%;
-        font-size: 1.9em;
+        margin-top: 33%;
+        font-size: 1.6em;
         letter-spacing: 4.5px;
     }
-    #logoreveal{
+    /* #logoreveal{
         margin-top: -10px;
         font-size: 0.8em;
-    }
+    } */
 
     #revealButton {
         font-size: 1.0rem;
@@ -438,8 +446,8 @@ body {
 
     #logorevealName{
         /* color: red; */
-        font-size: 1.5em;
-        margin-top: 35px;
+        font-size: 1.2em;
+        margin-top: 22.5px;
     }
 
     #logoContainer img {
@@ -604,21 +612,36 @@ body {
     }
     .infinity-symbol {
         font-size: 900px;
-        filter: blur(30px);
+        filter: blur(27px);
     }
     .loyola img {
-        height: 70px;
-        width: 70px;
+        height: 90px;
+        width: 90px;
     }
 
     .center{
-        left: 39%;
+        top: -52px;
+        left: 37.5%;
     }
 
-    .ovation {
-        font-size: 3.5em;
-        letter-spacing: 16px;
+    .center img{
+        height: 220px;
+        width: 220px;
     }
+
+
+    .ovation {
+        margin-top: 11%;
+        font-size: 3.4em;
+        letter-spacing: 12px;
+    }
+
+    #logorevealName{
+        /* color: red; */
+        font-size: 1.6em;
+        margin-top: -10px;
+    }
+
     #revealButton {
         font-size: 1.1rem;
         padding: 18px 36px;
@@ -637,21 +660,40 @@ body {
     }
     .infinity-symbol {
         font-size: 1200px;
-        filter: blur(35px);
+        filter: blur(32.5px);
     }
     .loyola img {
-        height: 90px;
-        width: 90px;
+        height: 100px;
+        width: 100px;
     }
 
     .center{
-        left: 41%;
+        top: -70px;
+        left: 39%;
+    }
+
+    .center img{
+        height: 270px;
+        width: 270px;
     }
 
     .ovation {
+        margin-top: 9%;
         font-size: 4em;
-        letter-spacing: 20px;
+        letter-spacing: 15px;
     }
+
+    
+    #logorevealName{
+        /* color: red; */
+        font-size: 2em;
+        margin-top: -10px;
+    }
+
+    #reveal_the_logo{
+        font-size: 1.2em;
+    }
+
     #revealButton {
         font-size: 1.2rem;
         padding: 20px 40px;
@@ -664,37 +706,38 @@ body {
     }
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 2559px) {
     .container {
         padding: 50px;
     }
     .infinity-symbol {
-        font-size: 1600px;
-        filter: blur(35px);
+        font-size: 1700px;
+        filter: blur(32.5px);
     }
     .loyola img {
-        height: 150px;
-        width: 150px;
+        height: 200px;
+        width: 200px;
     }
 
     .center{
-        top: -100px;
-        left: 42%;
+        top: -125px;
+        left: 39.5%;
     }
     
     .center img{
-        height: 350px;
-        width: 350px;
+        height: 470px;
+        width: 470px;
     }
 
     .ovation {
         font-size: 6em;
         letter-spacing: 25px;
+        margin-top: 9%;
     }
 
     #logorevealName{
         /* color: red; */
-        font-size: 3.0em;
+        font-size: 3.2em;
         margin-top: -10px;
     }
 
