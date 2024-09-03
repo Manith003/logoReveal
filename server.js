@@ -76,6 +76,17 @@ app.post('/resume', (req, res) => {
     res.json({ message: 'Server is resumed' });
 });
 
+// Endpoint to force complete the progress bar
+app.post('/force-complete', (req, res) => {
+    count = TOTAL_STUDENTS; // Set count to the total number of students to force 100% progress
+    fs.writeFileSync('count.json', JSON.stringify({ count, startTime, isPaused }));
+    res.json({ message: 'Progress has been forced to 100%' });
+
+    // Optionally, trigger additional actions, such as revealing the logo
+    console.log('Progress has been forced to 100%.');
+});
+
+
 // Serve index.html and admin.html for their respective routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
