@@ -75,6 +75,7 @@ body {
 .loyola {
     position: absolute;
     top: 10px;
+    background-color: red;
 }
 
 #logoLeft {
@@ -89,6 +90,7 @@ body {
     position: absolute;
     top: -45px;
     left: 41.5%;
+    background-color: red;
 }
 .center img{
     height: 200px;
