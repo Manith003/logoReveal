@@ -638,6 +638,67 @@ body {
     }
 }
 
+@media (min-width: 2560px) {
+    .container {
+        padding: 50px;
+    }
+    .infinity-symbol {
+        font-size: 1600px;
+        filter: blur(35px);
+    }
+    .loyola img {
+        height: 150px;
+        width: 150px;
+    }
+
+    .center{
+        top: -100px;
+        left: 42%;
+    }
+    
+    .center img{
+        height: 350px;
+        width: 350px;
+    }
+
+    .ovation {
+        font-size: 6em;
+        letter-spacing: 25px;
+    }
+
+    #logorevealName{
+        /* color: red; */
+        font-size: 3.0em;
+        margin-top: -10px;
+    }
+
+    #reveal_the_logo{
+        font-size: 2em;
+    }
+
+    #status{
+        font-size: 2em;
+    }
+
+    #message{
+        /* margin-top: 100px; */
+        transform: translate(0, 100%);
+        font-size: 4em;
+    }
+
+    #revealButton {
+        margin-top: 50px;
+        font-size: 2rem;
+        padding: 40px 80px;
+    }
+    .qoute h4 {
+        font-size: 2rem;
+    }
+    #progressBar {
+        height: 80px;
+    }
+}
+
 
 /* Modal Styles */
 .modal {
