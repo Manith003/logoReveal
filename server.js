@@ -6,7 +6,7 @@ const path = require('path');
 
 const app = express();
 const PORT = 3000;
-const TOTAL_STUDENTS = 10000;
+const TOTAL_STUDENTS = 20000;
 const TIMER_DURATION = 48 * 60 * 60 * 1000; // 5 minutes in milliseconds
 
 app.use(cors());
