@@ -293,8 +293,8 @@ body {
         padding: 30px;
     }
     .infinity-symbol {
-        font-size: 900px;
-        filter: blur(27px);
+        font-size: 800px;
+        filter: blur(28.5px);
     }
     .loyola img {
         height: 90px;
@@ -303,6 +303,7 @@ body {
 
     .center{
         top: -52px;
+        transform: translateY(52px);
         left: 50%;
         transform: translateX(-50%);
     }
@@ -343,7 +344,7 @@ body {
     }
     .infinity-symbol {
         font-size: 600px;
-        filter: blur(17px);
+        filter: blur(18.5px);
     }
     .loyola img {
         height: 70px;
@@ -352,6 +353,7 @@ body {
 
     .center{
         top: -48px;
+        transform: translateY(48px);
         left: 50%;
         transform: translateX(-50%);
     }
@@ -400,7 +402,7 @@ body {
     }
     .infinity-symbol {
         font-size: 400px;
-        filter: blur(12px);
+        filter: blur(13.5px);
     }
     .loyola img {
         height: 57px;
@@ -408,7 +410,8 @@ body {
     }
 
     .center{
-        top: -6.9%;
+        top: -5.8%;
+        transform: translateY(5.8%);
         left: 50%;
         transform: translateX(-50%);
     }
@@ -458,7 +461,7 @@ body {
     }
     .infinity-symbol {
         font-size: 300px;
-        filter: blur(12px);
+        filter: blur(13.5px);
     }
     .loyola img {
         height: 48px;
@@ -467,6 +470,7 @@ body {
 
     .center{
         top: -4.8%;
+        transform: translateY(4.8);
         left: 50%;
         transform: translateX(-50%);
     }
@@ -665,7 +669,7 @@ body {
     }
     .infinity-symbol {
         font-size: 900px;
-        filter: blur(27px);
+        filter: blur(28.5px);
     }
     .loyola img {
         height: 90px;
@@ -674,6 +678,7 @@ body {
 
     .center{
         top: -52px;
+        transform: translateY(52px);
         left: 50%;
         transform: translateX(-50%);
     }
@@ -714,7 +719,7 @@ body {
     }
     .infinity-symbol {
         font-size: 1200px;
-        filter: blur(32.5px);
+        filter: blur(33.5px);
     }
     .loyola img {
         height: 100px;
@@ -723,6 +728,7 @@ body {
 
     .center{
         top: -70px;
+        transform: translateY(70px);
         left: 50%;
         transform: translateX(-50%);
     }
@@ -767,7 +773,7 @@ body {
     }
     .infinity-symbol {
         font-size: 1600px;
-        filter: blur(32.5px);
+        filter: blur(33.5px);
     }
     .loyola img {
         height: 200px;
@@ -776,6 +782,7 @@ body {
 
     .center{
         top: -125px;
+        transform: translateY(125px);
         left: 50%;
         transform: translateX(-50%);
     }
